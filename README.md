@@ -118,10 +118,10 @@ This shows the average of all ratings applied to an object. Rounded to the neare
 
 **All Ratings that an object as given to another object:**
 
-Ratings that an object has applied to another object are stored as `rater_ratings`.
+Ratings that an object has applied to another object are stored as `rated_ratings`.
 
 ```ruby
-@user.rater_ratings
+@user.rated_ratings
 => ActiveRecord::Association: []
 ```
 
