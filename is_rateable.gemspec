@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = '5 star ratings for your Rails models'
   spec.description   = 'Allow any model to become rateable by any other model in your rails app.'
-  spec.homepage      = "https://github.com/Papercloud/is_rateable."
+  spec.homepage      = "https://github.com/Papercloud/is_rateable"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
