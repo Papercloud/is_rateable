@@ -15,8 +15,8 @@ describe IsRateable do
       expect(@movie.any_ratings?).to eq false
     end
 
-    it 'returns 0.0 as the average rating if it has not been rated' do
-      expect(@movie.average_rating).to eq 0.0
+    it 'returns the default_rating as the average rating if it has not been rated' do
+      expect(@movie.average_rating).to eq IsRateable.default_rating
     end
 
     it 'works out the average rating based on all ratings' do

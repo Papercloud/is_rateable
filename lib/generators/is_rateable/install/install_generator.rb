@@ -6,6 +6,10 @@ module IsRateable
 
     source_root File.expand_path('../templates', __FILE__)
 
+    def create_initializer
+      template 'initializer.rb', 'config/initializers/is_rateable.rb'
+    end
+
     def copy_migrations
       migration_template 'migration_ratings.rb', "db/migrate/create_is_rateable_ratings.rb"
     end
