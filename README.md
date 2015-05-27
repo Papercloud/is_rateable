@@ -125,6 +125,13 @@ Ratings that an object has applied to another object are stored as `rated_rating
 => ActiveRecord::Association: []
 ```
 
+**Rating that a rater has given to a particular object:**
+
+```ruby
+@user.rating_for(@movie)
+=> 5.0
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
