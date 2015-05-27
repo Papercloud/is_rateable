@@ -22,7 +22,8 @@ module IsRateable
 
       # Return the objects rating for another object
       def rating_for(ratee)
-        rated_ratings.where(ratee: ratee).first.try(:score)
+        return nil unless rated_ratings.where(ratee: ratee).first
+        ((rated_ratings.where(ratee: ratee).average(:score) * 10).round / 10.0)
       end
     end
   end

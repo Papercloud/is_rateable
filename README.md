@@ -127,6 +127,8 @@ Ratings that an object has applied to another object are stored as `rated_rating
 
 **Rating that a rater has given to a particular object:**
 
+If the object has rated something more than once, then it will return the average rating they have provided for that object (eg. Uber if you have had the same driver multiple times).
+
 ```ruby
 @user.rating_for(@movie)
 => 5.0
