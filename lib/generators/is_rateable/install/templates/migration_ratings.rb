@@ -1,6 +1,6 @@
 class CreateIsRateableRatings < ActiveRecord::Migration
   def change
-    create_table :is_rateable_ratings do |t|
+    create_table :is_rateable_ratings<%=", id: :uuid" if options['id_column_type'] == 'uuid' -%> do |t|
       t.<%= options['id_column_type'] -%> :rater_id, nil: false
       t.<%= options['id_column_type'] -%> :ratee_id, nil: false
       t.string :rater_type
