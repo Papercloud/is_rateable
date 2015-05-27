@@ -22,12 +22,10 @@ Or install it yourself as:
 
 ## Getting Started
 
-### Adding the ratings table.
+### Adding the ratings table and initializer.
 
     $ rails generate is_rateable:install
     $ rake db:migrate 
-
-This will create a migration adding a ratings table for you.
 
 **If you are using UUIDS:** 
 
@@ -35,6 +33,14 @@ This will create a migration adding a ratings table for you.
     $ rake db:migrate 
 
 This makes sure that the references to your `rater` and `ratee` uses a `:uuid` column rather than an `:integer` one
+
+### Configuring the initializer
+
+in `config/initializers/is_rateable.rb`:
+
+`minimum_ratings_for_average` sets the amount of ratings an object must have before the average is calculated. This stops the ratings swaying wildly when an object is new.
+
+`default_rating` sets the rating that is returned if the object does not have enough ratings for the average, and you ask for it's `average_rating`
 
 ### Configuring your models
 
