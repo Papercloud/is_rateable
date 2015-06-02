@@ -31,18 +31,18 @@ describe IsRateable do
       }.to change(IsRateable::Rating, :count).by(1)
     end
 
-    describe '#above_average_rating' do
-      it 'returns all objects above a specified average rating' do
+    describe '#with_minimum_rating' do
+      it 'returns all objects above or equal to a specified average rating' do
         IsRateable::Rating.create(rater: @user, ratee: @movie, score: 5)
         IsRateable::Rating.create(rater: @user, ratee: @movie, score: 0)
 
-        expect(Movie.above_average_rating(2)).to include(@movie)
+        expect(Movie.with_minimum_rating(2.5)).to include(@movie)
       end
 
       it 'doesnt return objects below the specified average rating' do
         IsRateable::Rating.create(rater: @user, ratee: @movie, score: 1)
 
-        expect(Movie.above_average_rating(2)).not_to include(@movie)
+        expect(Movie.with_minimum_rating(2.5)).not_to include(@movie)
       end
     end
   end
