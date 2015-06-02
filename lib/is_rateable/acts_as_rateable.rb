@@ -11,8 +11,8 @@ module IsRateable
 
         has_many :ratee_ratings, as: :ratee, class_name: 'IsRateable::Rating'
 
-        def above_average_rating(rating)
-          joins(:ratee_ratings).merge(Rating.group(:ratee_id, :ratee_type).having('AVG(score) > ?', rating)).group("#{self.table_name}.id")
+        def with_minimum_rating(rating)
+          joins(:ratee_ratings).merge(Rating.group(:ratee_id, :ratee_type).having('AVG(score) >= ?', rating)).group("#{self.table_name}.id")
         end
       end
     end
